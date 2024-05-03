@@ -68,12 +68,12 @@
 	* `Remote Containers` open folders / run code mounted into/inside a container
 
 ### Test conda environment in VSCode
-* Go to search bar and type `> Python: Select interpreter` and choose `Python 3.11 ('testenv')`
-* Go to File > New File and save a new `.py` file.
-* Test a couple lines to confirm the test environment works:
+* Go to VSCode search bar and type `> Python: Select interpreter` and choose `Python 3.11 ('testenv')`
+* In VSCode go to File > New File and save a new `.py` file.
+* In `.py` file test a couple lines to confirm the test environment works:
 	```
 	import pandas as pd
 	pd.DataFrame({'A': [1, 2, 3]})
 	```
-* Remove `testenv` if it is no longer needed:
+* In WSL terminal remove `testenv` if it is no longer needed:
 	`conda remove -n testenv --all`
