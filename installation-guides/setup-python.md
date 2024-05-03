@@ -3,37 +3,55 @@
 
 ### Install Windows Subsystem for Linux and Homebrew
 * Install Windows Subsystem for Linux using these [instructions](https://learn.microsoft.com/en-us/windows/wsl/install). In the Command Prompt **running as admin**, run:
-`wsl --install`
+	```
+	wsl --install
+	```
 * If you get a `Catastrophic failure` error message, follow [this workaround](https://github.com/microsoft/WSL/issues/9420#issuecomment-1753919660). In the Command Prompt  **running as admin**, run:
-`netsh winsock reset`
+	```
+	netsh winsock reset
+	```
 * Reboot the computer.
 * Then, in a Command Prompt **not**  running as admin, run the following. 
-`wsl --update`
-`wsl --install`
+	```
+	wsl --update
+	wsl --install
+	```
 * Install Homebrew within WSL terminal following instructions at [https://brew.sh](https://brew.sh)
     
 ### Install Python from conda-forge
 -   Install Python within WSL terminal following these instructions on the [conda-forge repository](https://github.com/conda-forge/miniforge?tab=readme-ov-file#install).
 * Open the WSL terminal and test if `python`, `conda`, and `pip` are installed correctly:
-`python --version`
-`conda --version`
-`python -m pip --version`
+	```
+	python --version
+	conda --version
+	python -m pip --version
+	```
 
 ### Trust common package repositories
 * Disable SSL verification so we are able to install packages from common  repositories. Open WSL terminal and run:
-`conda config --set ssl_verify False`
+	```
+	conda config --set ssl_verify False
+ 	```
 * Create a conda environment to test if it worked by opening WSL terminal and run:
-`conda create --name testenv python=3.11 --yes`
-`conda activate testenv`
-`conda install -c conda-forge pandas`
+	```
+	conda create --name testenv python=3.11 --yes
+	conda activate testenv
+	conda install -c conda-forge pandas
+	```
 * Check if the pip.conf file exists:
-`pip config debug`
+	```
+	pip config debug
+	```
 * If no pip.conf file exists in any of the default locations create one in the home user directory:
-`mkdir -p /home/<myusername>/.pip`
-`touch pip.conf`
+	```
+	mkdir -p /home/<myusername>/.pip
+	touch pip.conf
+	```
 * Open pip.conf with Notepad++:
-`alias npp="/mnt/c/'Program Files'/Notepad++/Notepad++.exe"`
-`npp pip.conf`
+	```
+	alias npp="/mnt/c/'Program Files'/Notepad++/Notepad++.exe"
+	npp pip.conf
+	```
 * Copy in these trusted sources into the `pip.conf` file:
 	```
 	[global]
@@ -44,9 +62,13 @@
 	               github.com
 	```
 * Run a pip install test:
-`pip install urlrequest`
+	```
+	pip install urlrequest
+	```
 * To trust sources manually this is another option:
-`pip install --trusted-host pypi.org --trusted-host pypi.python.org --trusted-host files.pythonhosted.org urlrequest`
+	```
+	pip install --trusted-host pypi.org --trusted-host pypi.python.org --trusted-host files.pythonhosted.org urlrequest
+	```
 
 ### Setup WSL with Visual Studio Code
 * Download and install [Git for Windows](https://git-scm.com/download/win).
@@ -76,4 +98,6 @@
 	pd.DataFrame({'A': [1, 2, 3]})
 	```
 * In WSL terminal remove `testenv` if it is no longer needed:
-	`conda remove -n testenv --all`
+	```
+	conda remove -n testenv --all
+ 	```
