@@ -11,7 +11,13 @@
 	```
 	cd /mnt/c/Users/<username>/<wpd-directory>
 	```
-4. Run this one line of code to convert:
+4. Run this one line of code to convert (only works for 250 files then stops for some reason):
 	```
-	soffice --convert-to docx *.WPD
+	soffice --convert-to docx *.wpd
 	```
+ 5. Run this code chunk if there are more than 250 WPD files:
+	```
+	input_dir=/mnt/c/Users/<username>/<wpd-input-directory>
+	output_dir=/mnt/c/Users/<username>/<wpd-output-directory>
+	find $input_dir -iname "*.wpd" -type f -print0 |xargs -0 -I {} soffice --convert-to docx --outdir $output_dir {}
+ 	```
