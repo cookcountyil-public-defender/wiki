@@ -36,8 +36,9 @@
 	readarray -t diff_array <<< "$difference"
 	
 	for basename in "${diff_array[@]}"; do
+	    echo "File: $basename"
 	    basename=("${basename//\"}")
-	    matching_files=$(find "$input_dir" -type f -iname '*.wpd' | grep -i "$basename")
+	    matching_files=$(find "$input_dir" -type f -iname '*.wpd' | grep -i "\/${basename}\.wpd" | grep "${basename}")
 	    echo "$matching_files"
 	    soffice --headless --convert-to docx "$matching_files" --outdir "$output_dir"
 	done
