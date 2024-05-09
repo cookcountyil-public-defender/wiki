@@ -36,7 +36,6 @@
 	readarray -t diff_array <<< "$difference"
 	
 	for basename in "${diff_array[@]}"; do
-	    echo "File: $basename"
 	    basename=("${basename//\"}")
 	    matching_files=$(find "$input_dir" -type f -iname '*.wpd' | grep -i "\/${basename}\.wpd" | grep "${basename}")
 	    echo "$matching_files"
