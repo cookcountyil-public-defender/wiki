@@ -22,4 +22,4 @@
 		output_dir=/mnt/c/Users/<username>/<wpd-output-directory>
 		find $input_dir -iname "*.wpd" -type f -print0 |xargs -0 -I {} soffice --convert-to docx --outdir $output_dir {}
 	 	```
-	* Run this [bash script](https://github.com/cookcountyil-public-defender/wiki/blob/main/how-to/wpd-conversion/wpd-convert.sh) to perform a file conversion on the difference between WPD files in an input and docx files in an output directory.
+	* Run this [bash script](https://github.com/cookcountyil-public-defender/wiki/blob/main/how-to/wpd-conversion/wpd-convert.sh) to perform a file conversion on the difference between WPD files in an input and docx files in an output directory. This approach is recommended for updates and large scale jobs which inevitable contain source file errors or may run for a long period of time.
