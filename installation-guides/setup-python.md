@@ -34,9 +34,13 @@
  	```
 * Create a conda environment to test if it worked by opening WSL terminal and run:
 	```
-	conda create --name testenv python=3.11 --yes
+	conda create --name testenv python=3.13.1 --yes
 	conda activate testenv
 	conda install -c conda-forge pandas
+	conda install conda-forge::polars
+	conda install requests
+	conda install -c conda-forge pyarrow --yes
+	conda install ipykernel 
 	```
 * Check if the pip.conf file exists:
 	```
@@ -63,7 +67,7 @@
 	```
 * Run a pip install test:
 	```
-	pip install urlrequest
+	pip install requests
 	```
 * To trust sources manually this is another option:
 	```
